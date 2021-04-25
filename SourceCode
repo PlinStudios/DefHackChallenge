@@ -10,15 +10,15 @@ int main()
     std::cin >> nada;
     std::cin >> line;
 
-    for (unsigned int i = 0; i < line.length() + 1; i++) {
-        if ((line[i] == '1' || i == line.length()) && (i > 0 && line[i - 1] == '0')) {
+    for (unsigned int i = 0; i < line.length()+1; i++) {
+        if (line[i] == '0') { segment++; }
+        if ((line[i] == '1' || i == line.length()) && (i>0 && line[i-1] == '0')) {
             if (segment < tiny) { tiny = segment; }
             if (segment > largest) { large = largest; largest = segment; }
             segment = 0;
         }
-        else { segment++; }
     }
     if (large / 2 < tiny) { tiny = large / 2; }
 
-    std::cout << tiny + 1;
+    std::cout << tiny+1;
 }
